@@ -1,0 +1,40 @@
+<div class="container-fluid">
+
+    <div class="card-body">
+        <table class="table border table table-hover table-condensed">
+            <thead>
+                <tr class="text-center">
+                    <th>nombre</th>
+                    <th>productoDescripcion</th>
+                    <th>productoInformacion</th>
+                    <th>presentacion</th>
+                    <th>categoria</th>
+                    <th>CodigoBarra</th>
+                    <th>fechaBaja</th>
+                    <th>fechaLimiteVencimientoDate</th>
+                    <th>stockActual</th>
+                    <th>stockMinimo</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let producto of productos" class="text-center">
+                    <th>{{producto.nombre}}</th>
+                    <th>{{producto.productoDescripcion}}</th>
+                    <th>{{producto.productoInformacion}}</th>
+                    <th>{{producto.presentacion}}</th>
+                    <th>{{producto.categoriId.descripcion}}</th>
+                    <th>{{producto.codigoBarra}}</th>
+                    <th>{{producto.fechaBaja}}</th>
+                    <th>{{producto.fechaLimiteVencimiento}}</th>
+                    <th>{{producto.stockActual}}</th>
+                    <th>{{producto.stockMinimo}}</th>
+                    <td>
+                        <button (click)="Editar(producto)" class="btn btn-warning  btn-sm" style="margin-left: 10px">Editar</button>
+                        <button class="btn btn-danger btn-sm " style="margin-left: 10px">Eliminar</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<router-outlet></router-outlet>

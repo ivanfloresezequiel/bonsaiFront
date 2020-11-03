@@ -1,0 +1,26 @@
+<div class="container-fluid">
+
+    <div class="card-body">
+        <table class="table border table table-hover table-condensed">
+            <thead>
+                <tr class="text-center">
+                    <th>Descripcion</th>
+                    <th>Etiqueta</th>
+                    <th>Opciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let categoria of categorias" class="text-center">
+
+                    <td>{{categoria.descripcion}}</td>
+                    <td>{{categoria.etiqueta}}</td>
+
+                    <td>
+                        <button (click)="Editar(categoria)" class="btn btn-warning  btn-sm" style="margin-left: 10px">Editar</button>
+                        <button class="btn btn-danger btn-sm " style="margin-left: 10px">Eliminar</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
