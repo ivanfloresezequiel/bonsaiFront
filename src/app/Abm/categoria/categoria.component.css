@@ -1,0 +1,36 @@
+#imagen {
+    text-align: center;
+    width: 200px;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+}
+
+#centrador {
+    position: relative;
+    width: 200px;
+    height: 200px;
+}
+
+.text-center {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.form-title {
+    font-weight: normal;
+    font-family: 'Times New Roman', Times, serif;
+    color: #0CD2A8;
+    padding: 14px 0;
+    text-align: center;
+    padding: 14px 0;
+}
+
+.form-title span {
+    color: white;
+}
+
+.card {
+    background-color: rgba(0, 0, 0, .6);
+}

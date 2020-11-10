@@ -12,8 +12,5 @@ export class ProductoComponent implements OnInit {
 
   ngOnInit(): void {
   }
-  Nuevo(){
-    
-    this.router.navigate(["productos/nuevo"]);
-  }
+ 
 }

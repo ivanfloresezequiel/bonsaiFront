@@ -1,0 +1,44 @@
+<div class="container-fluid">
+
+    <div class="contenedor">
+        <th> </th>
+
+        <table>
+            <thead>
+                <tr class="text-center">
+                    <th>Nombre</th>
+                    <th>Razon Social</th>
+                    <th>Telefono Fijo</th>
+                    <th>Whatsapp</th>
+                    <th>C.U.I.T</th>
+                    <th>Dirección</th>
+                    <th>Email</th>
+                    <th></th>
+
+                    <th><button (click)="Nuevo()" class="btn btn-success   ">Nuevo</button></th>
+
+
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let proveedor of proveedores" class="text-center">
+
+                    <td>{{proveedor.nombre}}</td>
+                    <td>{{proveedor.razon_social}}</td>
+                    <td>{{proveedor.telefono_fijo}}</td>
+                    <td>{{proveedor.whatsapp}}</td>
+                    <td>{{proveedor.cuit}}</td>
+                    <td>{{proveedor.direccion}}</td>
+                    <td>{{proveedor.mail}}</td>
+
+                    <td>
+                        <button (click)="Editar(proveedor)" class="btn btn-primary  btn-sm">Editar</button>
+                    </td>
+                    <td>
+                        <button (click)="Eliminar(proveedor)" class="btn btn-danger btn-sm ">Eliminar</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

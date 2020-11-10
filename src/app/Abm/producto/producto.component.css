@@ -1,0 +1,16 @@
+.form-title {
+    font-weight: normal;
+    font-family: 'Times New Roman', Times, serif;
+    color: #0CD2A8;
+    padding: 14px 0;
+    text-align: center;
+    padding: 14px 0;
+}
+
+.form-title span {
+    color: white;
+}
+
+.card {
+    background-color: rgba(0, 0, 0, .6);
+}

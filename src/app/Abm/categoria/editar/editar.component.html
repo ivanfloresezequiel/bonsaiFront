@@ -1,22 +1,37 @@
-<div class="container col-md-6">
-    <div class="card">
-        <div class="card-header">
-            <h3>Editar Categoria</h3>
+<div class="contenedor">
+    <form class="form" [formGroup]="formCategoria">
+        <div class="form-header">
+            <h1 class="form-title">Editar <span>Proveedor</span></h1>
         </div>
-        <div class="body">
-            <form action="">
-                <div class="form-group">
-                    <label for="">Descripcion</label>"
-                    <input [(ngModel)]="categoria.descripcion" name="descripcion" type="text" class="form-control">
+        <div>
+            <label class="form-label">Descripcion</label>
+            <input [(ngModel)]="categoria.descripcion" name="descripcion" type="text" formControlName="descripcion" class="form-input" placeholder="Descripcion">
+            <div class="alert-danger" *ngIf="descripcion.invalid && (descripcion.dirty || descripcion.touched)">
+                <div class="container-error-message" *ngIf="descripcion.errors.required">
+                    Descripción es requerido
+                </div>
+                <div class="container-error-message" *ngIf="descripcion.errors.minlength">
+                    Nombre debe tener al menos 3 caracteres.
                 </div>
 
-                <div class="form-group">
-                    <label for="">etiqueta</label>"
-                    <input [(ngModel)]="categoria.etiqueta" name="etiqueta" type="text" class="form-control">
-                </div>
-                <button (click)="Actualizar(categoria)" class="btn btn-warning">Guardar</button>
-            </form>
+            </div>
         </div>
-    </div>
+
+        <div>
+            <label class="form-label">Abreviatura</label>
+            <input [(ngModel)]="categoria.etiqueta" name="informacion" type="text" formControlName="abreviatura" class="form-input" placeholder="Abreviatura">
+            <div class="alert-danger" *ngIf="abreviatura.invalid && (abreviatura.dirty || abreviatura.touched)">
+                <div class="container-error-message" *ngIf="abreviatura.errors.required">
+                    Abreviatura es requerido
+                </div>
+                <div class="container-error-message" *ngIf="abreviatura.errors.maxlength">
+                    Abreviatura debe tener como máximo 5 caracteres.
+                </div>
+
+            </div>
+        </div>
+        <button (click)="Actualizar(categoria)" class="btn btn-warning">Guardar</button>
+    </form>
 </div>
+
 <router-outlet></router-outlet>

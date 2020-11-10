@@ -11,8 +11,5 @@ export class CategoriaComponent implements OnInit {
 
   ngOnInit(): void {
   }
-  Nuevo(){
-    
-    this.router.navigate(["categorias/nuevo"]);
-  }
+ 
 }

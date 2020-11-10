@@ -1,12 +1,13 @@
 <div class="container-fluid">
 
-    <div class="card-body">
-        <table class="table border table table-hover table-condensed">
+    <div class="contenedor">
+        <table>
             <thead>
                 <tr class="text-center">
                     <th>Descripcion</th>
-                    <th>Etiqueta</th>
-                    <th>Opciones</th>
+                    <th>Abreviatura</th>
+                    <th></th>
+                    <th><button (click)="Nuevo()" class="btn btn-success  btn-sm ml-auto">Nuevo</button></th>
                 </tr>
             </thead>
             <tbody>
@@ -16,8 +17,8 @@
                     <td>{{categoria.etiqueta}}</td>
 
                     <td>
-                        <button (click)="Editar(categoria)" class="btn btn-warning  btn-sm" style="margin-left: 10px">Editar</button>
-                        <button class="btn btn-danger btn-sm " style="margin-left: 10px">Eliminar</button>
+                        <button (click)="Editar(categoria)" class="btn btn-primary  btn-sm" style="margin-left: 10px">Editar</button></td>
+                    <td> <button (click)="Eliminar(categoria)" class="btn btn-danger btn-sm " style="margin-left: 10px">Eliminar</button>
                     </td>
                 </tr>
             </tbody>

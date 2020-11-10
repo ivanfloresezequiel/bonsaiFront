@@ -1,0 +1,46 @@
+.contenedor {
+    margin: 150px;
+    width: 800px;
+    font-family: 'Times New Roman', Times, serif;
+    color: white;
+}
+
+table {
+    background: white;
+    text-align: left;
+    border-collapse: collapse;
+    width: 100%
+}
+
+th,
+td {
+    padding: 15px;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+thead {
+    background-color: rgba(0, 0, 0, 0.822);
+    color: #0CD2A8;
+    border-bottom: solid 5Px #0F362D;
+}
+
+tbody {
+    /*   background-color: #A1D555;*/
+    background-color: rgba(0, 0, 0, 0.61);
+}
+
+tr:nth-child(even) {
+    /* 4AA24B*/
+    background-color: rgba(0, 0, 0, 0.705);
+    /*   background-color: #489C49;*/
+}
+
+tr:hover td {
+    background-color: #369681;
+    color: white;
+}
+
+.btn-success {
+    color: rgba(0, 0, 0, 0.822);
+    background: #0CD2A8;
+}

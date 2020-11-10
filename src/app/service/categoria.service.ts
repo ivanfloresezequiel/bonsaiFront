@@ -13,7 +13,7 @@ export class CategoriaService {
   Url='http://localhost:8080/categoria';
 
   getCategorias(){
-    return this.http.get<Response>(this.Url);
+    return this.http.get<Response>(this.Url+"/habilitados");
   }
   crearCategoria(categoria:Categoria){
     return this.http.post<Response>(this.Url, categoria);

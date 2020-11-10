@@ -18,6 +18,6 @@ import { NuevoComponent } from './nuevo/nuevo.component';
     EditarComponent,
     NuevoComponent],
 imports:[
-    CommonModule,productoRoutingModule, FormsModule
+    CommonModule,productoRoutingModule, FormsModule, ReactiveFormsModule
 ]})
 export class productoModule{}

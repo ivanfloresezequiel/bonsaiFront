@@ -7,7 +7,12 @@ const routes: Routes = [
    { path:"categorias",
     loadChildren: () => import('./Abm/categoria/categoria.module').then(m=>m.categoriaModule),
   },
-  
+  { path:"proveedor",
+    loadChildren: () => import('./Abm/proveedores/proveedor.module').then(m=>m.proveedorModule),
+  },
+  { path:"compras",
+    loadChildren: () => import('./compras/compras.module').then(m=>m.comprasModule),
+  },
 ];
 
 @NgModule({

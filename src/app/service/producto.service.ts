@@ -10,10 +10,10 @@ export class ProductoService {
 
  
   constructor(private http:HttpClient) { }
-  Url='http://localhost:8080/categoria';
+  Url='http://localhost:8080/productos';
 
   getProducto(){
-    return this.http.get<Response>(this.Url);
+    return this.http.get<Response>(this.Url+"/habilitados");
   }
   crearProducto(producto: Producto){
     return this.http.post<Response>(this.Url, producto);
@@ -21,7 +21,7 @@ export class ProductoService {
   getProductoId(id:number){
     return this.http.get<Response>(this.Url + "/"+ id);
   }
-  actualizarCategoria(producto:Producto){
+  actualizarProducto(producto:Producto){
     return this.http.put<Response>(this.Url+"/"+producto.id_producto,producto);
   }
 }

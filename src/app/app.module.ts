@@ -9,15 +9,23 @@ import { HttpClientModule } from "@angular/common/http";
 import { MenuComponent } from './menu/menu.component';
 
 
+
+
+
+
 @NgModule({
   declarations: [
     AppComponent,
-    MenuComponent,   
+    MenuComponent,
+
+   
+       
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule, HttpClientModule
+    FormsModule, HttpClientModule, ReactiveFormsModule,
+   
   ],
   providers: [ ],
   bootstrap: [AppComponent]

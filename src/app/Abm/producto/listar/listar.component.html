@@ -1,19 +1,21 @@
 <div class="container-fluid">
 
-    <div class="card-body">
-        <table class="table border table table-hover table-condensed">
+    <div class="contenedor">
+        <table>
             <thead>
                 <tr class="text-center">
                     <th>nombre</th>
-                    <th>productoDescripcion</th>
-                    <th>productoInformacion</th>
+                    <th>Descripcion</th>
+                    <th>Informacion</th>
+                    <th>Marca</th>
                     <th>presentacion</th>
                     <th>categoria</th>
-                    <th>CodigoBarra</th>
-                    <th>fechaBaja</th>
-                    <th>fechaLimiteVencimientoDate</th>
-                    <th>stockActual</th>
-                    <th>stockMinimo</th>
+                    <th>Codigo de Barra</th>
+                    <th>fecha de Baja</th>
+                    <th>stock Actual</th>
+                    <th>stock Minimo</th>
+                    <th></th>
+                    <th><button (click)="Nuevo()" class="btn btn-success   ">Nuevo</button></th>
                 </tr>
             </thead>
             <tbody>
@@ -21,18 +23,20 @@
                     <th>{{producto.nombre}}</th>
                     <th>{{producto.productoDescripcion}}</th>
                     <th>{{producto.productoInformacion}}</th>
+                    <th>{{producto.marca}}</th>
                     <th>{{producto.presentacion}}</th>
-                    <th>{{producto.categoriId.descripcion}}</th>
+                    <th>{{producto.categoriId}}</th>
                     <th>{{producto.codigoBarra}}</th>
                     <th>{{producto.fechaBaja}}</th>
-                    <th>{{producto.fechaLimiteVencimiento}}</th>
                     <th>{{producto.stockActual}}</th>
                     <th>{{producto.stockMinimo}}</th>
-                    <td>
-                        <button (click)="Editar(producto)" class="btn btn-warning  btn-sm" style="margin-left: 10px">Editar</button>
-                        <button class="btn btn-danger btn-sm " style="margin-left: 10px">Eliminar</button>
-                    </td>
-                </tr>
+                    <th>
+                        <button (click)="Editar(producto)" class="btn btn-warning  btn-sm">Editar</button></th>
+
+                    <th>
+                        <button class="btn btn-danger btn-sm ">Eliminar</button>
+
+                    </th>
             </tbody>
         </table>
     </div>

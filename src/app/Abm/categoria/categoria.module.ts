@@ -9,6 +9,7 @@ import{FormsModule}from '@angular/forms';
 import { ListarComponent } from './listar/listar.component';
 import { NuevoComponent } from './nuevo/nuevo.component';
 import { EditarComponent } from './editar/editar.component';
+
 @NgModule({
     declarations:[
     CategoriaComponent,
@@ -16,6 +17,6 @@ import { EditarComponent } from './editar/editar.component';
     NuevoComponent,
     EditarComponent],
 imports:[
-    CommonModule, categoriaRoutingModule, FormsModule
+    CommonModule, categoriaRoutingModule, FormsModule, ReactiveFormsModule
 ]})
 export class categoriaModule{}

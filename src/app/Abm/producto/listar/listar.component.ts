@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import{Producto} from '../../../Modelo/Producto';
 import{ ProductoService } from '../../../service/producto.service';
 import {Router} from '@angular/router';
+
 @Component({
   selector: 'app-listar',
   templateUrl: './listar.component.html',
@@ -22,12 +23,27 @@ export class ListarComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    alert("Se agrego el categoria");
-    this.service.getProducto().subscribe(data => {this.productos=data.data});  
+
+    this.service.getProducto().subscribe(data => {this.productos=data.data}); 
+     
     
   }
   Editar(producto:Producto){
     localStorage.setItem("id", producto.id_producto.toString());
     this.router.navigate(["productos/editar"]);
+  }
+  Nuevo(){
+    
+    this.router.navigate(["productos/nuevo-producto"]);
+  }
+
+  Eliminar(producto:Producto){
+   
+    producto.estado=false;
+    this.service.actualizarProducto(producto).subscribe(data =>{
+      this.producto = data.data;
+      location.reload();
+    })
+  
   }
 }

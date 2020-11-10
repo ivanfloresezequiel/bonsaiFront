@@ -1,0 +1,102 @@
+<div class="fondo">
+    <div class="contenedor">
+        <form class="form" [formGroup]="formProveedor">
+            <div class="form-header">
+                <h1 class="form-title">Nuevo <span>Proveedor</span></h1>
+            </div>
+
+
+            <label class="form-label">Nombre: </label>
+            <input [(ngModel)]="proveedor.nombre" class="form-input" type="text" formControlName="nombre" placeholder="Nombre">
+
+            <div class="alert-danger" *ngIf="nombre.invalid && (nombre.dirty || nombre.touched)">
+                <div class="container-error-message" *ngIf="nombre.errors.required">
+                    Nombre es requerido
+                </div>
+                <div class="container-error-message" *ngIf="nombre.errors.minlength">
+                    Nombre debe tener al menos 3 caracteres.
+                </div>
+
+            </div>
+
+            <label class="form-label"> Telefono Fijo:</label>
+            <input [(ngModel)]="proveedor.telefono_fijo" class="form-input" type="number" formControlName="telefono_fijo" placeholder="Telefono">
+            <div class="alert-danger" *ngIf="telefono.invalid && (telefono.dirty || telefono.touched)">
+                <div class="container-error-message" *ngIf="telefono.errors.required">
+                    Telefono Fijo es requerido
+                </div>
+                <div class="container-error-message" *ngIf="telefono.errors.minlength">
+                    Telefono debe tener al menos 8 números.
+                </div>
+            </div>
+
+
+
+            <label class="form-label">Razon social: </label>
+            <input [(ngModel)]="proveedor.razon_social" type="text" class="form-input" formControlName="razon_social" placeholder="Razon Social">
+            <div class="alert-danger" *ngIf="razonSocial.invalid && (razonSocial.dirty || razonSocial.touched)">
+                <div class="container-error-message" *ngIf="razonSocial.errors.required">
+                    Razon social es requerido
+                </div>
+                <div class="container-error-message" *ngIf="razonSocial.errors.minlength">
+                    Razon social debe tener al menos 8 caracteres.
+                </div>
+            </div>
+
+
+
+
+            <label class="form-label">Whatsapp</label>
+            <input [(ngModel)]="proveedor.whatsapp" type="number" class="form-input" formControlName="whatsapp" placeholder="Whatsapp">
+            <div class="alert-danger" *ngIf="whatsapp.invalid && (whatsapp.dirty || whatsapp.touched)">
+                <div class="container-error-message" *ngIf="whatsapp.errors.required">
+                    Whatsapp es requerido
+                </div>
+
+            </div>
+
+
+
+            <label class="form-label">C.U.I.T</label>
+            <input [(ngModel)]="proveedor.cuit" type="number" class="form-input" formControlName="cuit" placeholder="C.U.I.T">
+            <div class="alert-danger" *ngIf="razonSocial.invalid && (cuit.dirty || cuit.touched)">
+                <div class="container-error-message" *ngIf="cuit.errors.required">
+                    CUIT es requerido
+                </div>
+
+            </div>
+
+
+
+
+            <label class="form-label">Direccion</label>
+            <input [(ngModel)]="proveedor.direccion" type="text" class="form-input" formControlName="direccion" placeholder="Dirección">
+            <div class="alert-danger" *ngIf="direccion.invalid && (direccion.dirty || direccion.touched)">
+                <div class="container-error-message" *ngIf="direccion.errors.required">
+                    Direccion es requerido
+                </div>
+                <div class="container-error-message" *ngIf="nombre.errors.minlength">
+                    Direccion debe tener al menos 6 caracteres.
+                </div>
+            </div>
+
+
+
+
+            <label class="form-label">Email</label><br>
+            <input [(ngModel)]="proveedor.mail" type="email" class="form-input" formControlName="mail" placeholder="Email">
+            <div class="alert-danger" *ngIf="mail.invalid && (mail.dirty || mail.touched)">
+                <div class="container-error-message" *ngIf="mail.errors.required">
+                    Email es requerido
+                </div>
+                <div class="container-error-message" *ngIf="(mail.dirty || mail.touched) && mail.invalid && mail.errors.pattern">
+                    Ingrese una direccion de Email Valida: ejemplo@ejemplo.com
+                </div>
+            </div>
+            <input (click)=Guardar() type="submit" class="btn-submit" value="Guardar" [disabled]="!formProveedor">
+            <!--    <button (click)="Guardar()" class="btn btn-warning" [disabled]="!formProveedor">Guardar</button>
+-->
+        </form>
+
+    </div>
+</div>
