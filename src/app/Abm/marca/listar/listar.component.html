@@ -1,0 +1,28 @@
+<div class="container-fluid">
+
+    <div class="contenedor">
+        <table>
+            <thead>
+                <tr class="text-center">
+                    <th>Abreviatura</th>
+                    <th>Descripcion</th>
+
+                    <th></th>
+                    <th><button (click)="Nuevo()" class="btn btn-success  btn-sm ml-auto">Nuevo</button></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let marca of marcas" class="text-center">
+
+                    <td>{{marca.nombre}}</td>
+                    <td>{{marca.descripcion}}</td>
+
+                    <td>
+                        <button (click)="Editar(marca)" class="btn btn-primary  btn-sm" style="margin-left: 10px">Editar</button></td>
+                    <td> <button (click)="Eliminar(marca)" class="btn btn-danger btn-sm " style="margin-left: 10px">Eliminar</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

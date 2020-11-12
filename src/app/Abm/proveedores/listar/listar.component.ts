@@ -11,7 +11,8 @@ import Swal from 'sweetalert2';
 export class ListarComponent implements OnInit {
   proveedor: Proveedor = null;
   proveedores: Proveedor[] = null;
-  
+  proveedoresFilter: Proveedor[] = [];
+  busqueda: string = null;
   constructor(private service: ProveedorService, private router:Router) { 
     
   }
@@ -19,8 +20,33 @@ export class ListarComponent implements OnInit {
   ngOnInit(): void {
     this.service.getProveedor().subscribe(data =>{
       this.proveedores = data.data;
+      this.proveedoresFilter= this.proveedores;
     })    
   }
+  //Filtar 
+    filtrarArticulo() {
+    this.busqueda = this.busqueda.toLowerCase();
+    this.proveedoresFilter = this.proveedores;
+
+    if (this.busqueda !== null) {    
+
+      this.proveedoresFilter = this.proveedores.filter((item) => {
+        const inNombre = item.nombre.toLowerCase().indexOf(this.busqueda) !== -1;
+        const inRazonSocial =
+          item.razon_social.toLowerCase().indexOf(this.busqueda) !== -1;
+        const inMail =
+          item.mail.toLowerCase().indexOf(this.busqueda) !== -1;
+        return inNombre || inRazonSocial || inMail;
+
+      });
+    }
+  }
+
+
+
+
+
+
   Editar(proveedor: Proveedor){
     localStorage.setItem("id", proveedor.id_proveedor.toString());
     this.router.navigate(["proveedor/editar"]);
@@ -37,6 +63,7 @@ export class ListarComponent implements OnInit {
       confirmButtonText: 'Confirmar'
     }).then((result) => {
       if (result.isConfirmed) {
+       
         proveedor.estado=false;
         this.service.actualizarProveedor(proveedor).subscribe(data=>{
         this.proveedor = data.data;

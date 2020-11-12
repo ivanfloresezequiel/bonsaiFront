@@ -13,6 +13,9 @@ const routes: Routes = [
   { path:"compras",
     loadChildren: () => import('./compras/compras.module').then(m=>m.comprasModule),
   },
+  { path:"marca",
+    loadChildren: () => import('./Abm/marca/marca.module').then(m=>m.marcaModule),
+  },
 ];
 
 @NgModule({

@@ -1,4 +1,26 @@
-<div class="container col-md-8">
+<div class="contenedor">
+    <form class="form">
+        <mat-form-field class="col md-3">
+            <label class="form-label">Nombre: </label>
+            <input placeholder="Just a placeholder">
+
+            <label class="form-label">Presentacion:  </label>
+            <input class="form-input">
+            <label class="form-label">Presentacion:  </label>
+            <input placeholder="Presentacion">
+        </mat-form-field>
+        <mat-form-field class="col md-3">
+            <label class="form-label">Nombre: </label>
+            <input placeholder="Just a placeholder">
+
+            <label class="form-label">Presentacion:  </label>
+            <input placeholder="Presentacion">
+            <label class="form-label">Presentacion:  </label>
+            <input placeholder="Presentacion">
+        </mat-form-field>
+    </form>
+</div>
+<!--<div class="container col-md-8">
     <div class="card">
         <div class="card-header">
 
@@ -28,33 +50,33 @@
 
                         <select [(ngModel)]="producto.categoriId">
                             <label for="">Categoria </label>
-                        <option *ngFor="let categoria of categorias" value={{categoria.id_categoria}} placeholder="Categoria">
-                            {{categoria.descripcion}}
-                        </option>
-                    </select>
-                    </div>
-                    <div class="col-md-2">
-                        <button class="btn btn-success" (click)="CategoriaNueva()">...</button>
-                    </div>
-                </div>
+            <option *ngFor="let categoria of categorias" value={{categoria.id_categoria}} placeholder="Categoria">
+                {{categoria.descripcion}}
+            </option>
+            </select>
+</div>
+<div class="col-md-2">
+    <button class="btn btn-success" (click)="CategoriaNueva()">...</button>
+</div>
+</div>
 
-                <div class="form-group col-md-8">
-                    <div class="row">
-                        <input [(ngModel)]="producto.codigoBarra" name="codigoBarra" type="text" class="form-control" placeholder="Codigo de Barra">
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="form-group col-md-3">
-                        <label for="">Fecha de Baja</label>
-                        <input [(ngModel)]="producto.fechaBaja" name="fechaBaja" type="date" class="form-control">
-                    </div>
+<div class="form-group col-md-8">
+    <div class="row">
+        <input [(ngModel)]="producto.codigoBarra" name="codigoBarra" type="text" class="form-control" placeholder="Codigo de Barra">
+    </div>
+</div>
+<div class="row">
+    <div class="form-group col-md-3">
+        <label for="">Fecha de Baja</label>
+        <input [(ngModel)]="producto.fechaBaja" name="fechaBaja" type="date" class="form-control">
+    </div>
 
-                    <div class="form-group col-md-3">
-                        <label for="">Stock Minimo</label>
-                        <input [(ngModel)]="producto.stockMinimo" name="stockMinimo" type="text" class="form-control">
-                    </div>
-                </div>
+    <div class="form-group col-md-3">
+        <label for="">Stock Minimo</label>
+        <input [(ngModel)]="producto.stockMinimo" name="stockMinimo" type="text" class="form-control">
+    </div>
+</div>
 
-            </form>
-        </div>
-        <button (click)="Guardar()" class="btn btn-warning">Guardar</button>
+</form>
+</div>
+<button (click)="Guardar()" class="btn btn-warning">Guardar</button> -->

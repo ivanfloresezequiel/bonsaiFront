@@ -1,5 +1,5 @@
 .contenedor {
-    margin: 50px auto;
+    margin: 150px;
     width: 800px;
     font-family: 'Times New Roman', Times, serif;
     color: white;
@@ -10,10 +10,6 @@ table {
     text-align: left;
     border-collapse: collapse;
     width: 100%
-}
-
-.formInput-placeholder {
-    color: red;
 }
 
 th,
@@ -48,32 +44,3 @@ tr:hover td {
     color: rgba(0, 0, 0, 0.822);
     background: #0CD2A8;
 }
-
-.contenedor1 {
-    margin: 30px auto;
-    width: 800px;
-    font-family: 'Times New Roman', Times, serif;
-    color: white;
-}
-
-.contenedor1 .formInput {
-    background: rgba(0, 0, 0, .7);
-    border: none;
-    outline: none;
-    border-bottom: 2px solid#0CD2A8;
-    width: 80%;
-    padding: 12px;
-    margin-bottom: 20px;
-    border-radius: 2px;
-    font-size: 14px;
-    color: beige;
-    font-family: 'Times New Roman', Times, serif;
-}
-
-
-/*
-.btn-primary {
-    color: white;
-    background: rgba(20, 20, 216, 0.836);
-    border: none;
-}*/

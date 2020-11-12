@@ -7,6 +7,7 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 import { HttpClientModule } from "@angular/common/http";
 import { MenuComponent } from './menu/menu.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 
@@ -17,6 +18,7 @@ import { MenuComponent } from './menu/menu.component';
   declarations: [
     AppComponent,
     MenuComponent,
+   
 
    
        
@@ -24,7 +26,7 @@ import { MenuComponent } from './menu/menu.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule, HttpClientModule, ReactiveFormsModule,
+    FormsModule, HttpClientModule, ReactiveFormsModule, BrowserAnimationsModule
    
   ],
   providers: [ ],

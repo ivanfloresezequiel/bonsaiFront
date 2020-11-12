@@ -22,7 +22,7 @@
 /*Para darle formato al contenedor*/
 
 .contenedor .form {
-    background: rgba(0, 0, 0, .6);
+    background: rgba(0, 0, 0, .8);
     width: 90%;
     max-width: 650px;
     margin: auto;

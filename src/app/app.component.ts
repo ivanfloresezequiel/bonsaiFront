@@ -21,4 +21,7 @@ export class AppComponent implements OnInit{
   Proveedor(){
     this.router.navigate([("proveedor")]);
   }
+  Marca(){
+    this.router.navigate([("marca")]);
+  }
 }
