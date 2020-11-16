@@ -1,0 +1,25 @@
+<div class="contenedor">
+    <form class="form" [formGroup]="formBanco">
+
+        <div class="form-header">
+            <h1 class="form-title">Nuevo<span> Banco</span></h1>
+        </div>
+
+        <div>
+            <label class="form-label">Nombre </label>
+            <input [(ngModel)]="banco.nombreBanco" name="nombreBanco" type="text" formControlName="nombreBanco" class="form-input" placeholder="Nombre Banco">
+            <div class="alert-danger" *ngIf="nombreBanco.invalid && (nombreBanco.dirty || nombreBanco.touched)">
+                <div class="container-error-message" *ngIf="nombreBanco.errors.required">
+                    Descripción es requerido
+                </div>
+                <div class="container-error-message" *ngIf="nombreBanco.errors.minlength">
+                    Nombre debe tener al menos 3 caracteres.
+                </div>
+
+            </div>
+        </div>
+
+        <input (click)=Guardar() type="submit" class="btn-submit" value="Guardar">
+
+    </form>
+</div>

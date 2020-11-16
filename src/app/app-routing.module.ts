@@ -16,6 +16,14 @@ const routes: Routes = [
   { path:"marca",
     loadChildren: () => import('./Abm/marca/marca.module').then(m=>m.marcaModule),
   },
+  {
+    path:"banco",
+    loadChildren:() => import('./Abm/banco/banco.module').then(m=>m.bancoModule),
+  },
+ {
+   path:"CuentaBancaria",
+   loadChildren:() => import('./Abm/cuenta-bancaria/cuenta-bancaria.module').then(m=>m.cuentaBancariaModule),   
+ },
 ];
 
 @NgModule({

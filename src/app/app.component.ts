@@ -24,4 +24,11 @@ export class AppComponent implements OnInit{
   Marca(){
     this.router.navigate([("marca")]);
   }
+  Banco(){
+    this.router.navigate([("banco")]);
+  }
+  CuentaBancaria(){
+    
+    this.router.navigate([("CuentaBancaria")])
+  }
 }

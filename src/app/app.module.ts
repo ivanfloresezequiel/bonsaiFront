@@ -8,6 +8,8 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { HttpClientModule } from "@angular/common/http";
 import { MenuComponent } from './menu/menu.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { BancoComponent } from './Abm/banco/banco.component';
+import { CuentaBancariaComponent } from './Abm/cuenta-bancaria/cuenta-bancaria.component';
 
 
 
@@ -18,6 +20,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
   declarations: [
     AppComponent,
     MenuComponent,
+  
    
 
    

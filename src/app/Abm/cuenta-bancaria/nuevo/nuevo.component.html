@@ -1,0 +1,47 @@
+<div class="contenedor">
+    <form class="form" [formGroup]="formCuenta">
+
+        <div class="form-header">
+            <h1 class="form-title">Nueva<span> Cuenta</span></h1>
+        </div>
+
+
+        <div class="col md-3">
+
+            <label class="form-label">Tipo Cuenta: </label>
+            <input [(ngModel)]="cuentaBancaria.tipoCuenta" name="cuentaBancaria.tipoCuenta" formControlName="tipoCuenta" type="text" class="form-input" placeholder="Tipo de Cuenta">
+            <label class="form-label"> Banco: </label>
+
+            <select [(ngModel)]="cuentaBancaria.idBanco" formControlName="bancoID">
+                <option *ngFor= "let banco of bancos" [(value)] = banco.id_banco>
+                    {{banco.nombreBanco}}
+                </option>
+            </select>
+        </div>
+        <div class="col md-3">
+            <label class="form-label">CBU:: </label>
+            <input [(ngModel)]="cuentaBancaria.cbu" name="cuentaBancaria.cbu" formControlName="cbu" type="text" class="form-input" placeholder="CBU">
+            <label class="form-label"> Proveedor: </label>
+
+            <select [(ngModel)]="cuentaBancaria.idProveedor" formControlName="proveedorID">
+                <option *ngFor= "let proveedor of proveedores" [(value)] = proveedor.id_proveedor>
+                    {{proveedor.nombre}}
+                </option>
+            </select>
+        </div>
+        <!-- 
+        <mat-form-field class="col md-3">
+            <label class="form-label">CBU: </label>
+            <input [(ngModel)]="cuentaBancaria.cbu" name="cbu" type="number" class="form-input" placeholder="Ingrese CBU">
+         <label class="form-label"> Proveedor: </label>
+            <select [(ngModel)]="idProveedor">
+                <option *ngFor= "let proveedor of proveedores" value = proveedor>
+                    {{proveedor.nombre}}
+                </option>
+            </select>
+        </mat-form-field>-->
+
+        <input (click)=Guardar() type="submit" class="btn-submit" value="Guardar">
+
+    </form>
+</div>

@@ -10,7 +10,7 @@ export class CategoriaService {
 
  
   constructor(private http:HttpClient) { }
-  Url='http://localhost:8080/categoria';
+  Url='http://localhost:8080/categorias';
 
   getCategorias(){
     return this.http.get<Response>(this.Url+"/habilitados");

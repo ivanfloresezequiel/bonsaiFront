@@ -9,21 +9,21 @@
         <table>
             <thead>
                 <tr class="text-center">
-                    <th>Descripcion</th>
-                    <th>Abreviatura</th>
+                    <th>IdBanco</th>
+                    <th>Nombre Banco</th>
                     <th></th>
                     <th><button (click)="Nuevo()" class="btn btn-success  btn-sm ml-auto">Nuevo</button></th>
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let categoria of categoriasFilter" class="text-center">
+                <tr *ngFor="let banco of bancosFilter" class="text-center">
 
-                    <td>{{categoria.descripcion}}</td>
-                    <td>{{categoria.etiqueta}}</td>
+                    <td>{{banco.id_banco}}</td>
+                    <td>{{banco.nombreBanco}}</td>
 
                     <td>
-                        <button (click)="Editar(categoria)" class="btn btn-primary  btn-sm" style="margin-left: 10px">Editar</button></td>
-                    <td> <button (click)="Eliminar(categoria)" class="btn btn-danger btn-sm " style="margin-left: 10px">Eliminar</button>
+                        <button (click)="Editar(banco)" class="btn btn-primary  btn-sm" style="margin-left: 10px">Editar</button></td>
+                    <td> <button (click)="Eliminar(banco)" class="btn btn-danger btn-sm " style="margin-left: 10px">Eliminar</button>
                     </td>
                 </tr>
             </tbody>

@@ -1,23 +1,25 @@
 import{ NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import { ngModuleJitUrl } from '@angular/compiler';
-import { ProveedoresComponent } from './proveedores.component';
-import { proveedorRoutingModule } from './proveedor-routing.module';
+
+import { ReactiveFormsModule } from '@angular/forms';
+import { BancoComponent } from './banco.component';
+
 import{FormsModule}from '@angular/forms';
+import { bancoRoutingModule } from './banco-routing.module';
 import { ListarComponent } from './listar/listar.component';
 import { EditarComponent } from './editar/editar.component';
 import { NuevoComponent } from './nuevo/nuevo.component';
-import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
     declarations:[
-        ProveedoresComponent,
+        BancoComponent,
         ListarComponent,
         EditarComponent,
-        NuevoComponent
-   ],
+        NuevoComponent,
+    ],
 imports:[
-    CommonModule, proveedorRoutingModule, FormsModule, ReactiveFormsModule, 
+    CommonModule, bancoRoutingModule, FormsModule, ReactiveFormsModule
 ]})
-export class proveedorModule{}
+export class bancoModule{}

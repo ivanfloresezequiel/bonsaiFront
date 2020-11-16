@@ -3,6 +3,8 @@ import {Router} from '@angular/router';
 import { Proveedor } from '../../../Modelo/proveedor';
 import { ProveedorService } from '../../../service/proveedor.service';
 import Swal from 'sweetalert2';
+import { ExporterService } from '../../../service/exporter.service';
+
 @Component({
   selector: 'app-listar',
   templateUrl: './listar.component.html',
@@ -13,7 +15,7 @@ export class ListarComponent implements OnInit {
   proveedores: Proveedor[] = null;
   proveedoresFilter: Proveedor[] = [];
   busqueda: string = null;
-  constructor(private service: ProveedorService, private router:Router) { 
+  constructor(private service: ProveedorService, private router:Router, private servicioExportar: ExporterService) { 
     
   }
 
@@ -22,6 +24,11 @@ export class ListarComponent implements OnInit {
       this.proveedores = data.data;
       this.proveedoresFilter= this.proveedores;
     })    
+  }
+
+
+  Exportar():void{
+      this.servicioExportar.exportarExcel(this.proveedoresFilter, 'Proveedores');
   }
   //Filtar 
     filtrarArticulo() {

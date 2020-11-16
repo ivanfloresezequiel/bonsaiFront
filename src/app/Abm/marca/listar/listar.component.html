@@ -1,5 +1,10 @@
 <div class="container-fluid">
-
+    <div class="contenedor1">
+        <div class="row">
+            <input type="text" [(ngModel)]="busqueda" class="formInput  searchText" placeholder="Ingrese busqueda" (keyup)="filtrarArticulo()" />
+            <tr> <button (click)="Exportar()" class="btn btn-success">Exportar Excel</button> </tr>
+        </div>
+    </div>
     <div class="contenedor">
         <table>
             <thead>
@@ -12,7 +17,7 @@
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let marca of marcas" class="text-center">
+                <tr *ngFor="let marca of marcasFilter" class="text-center">
 
                     <td>{{marca.nombre}}</td>
                     <td>{{marca.descripcion}}</td>

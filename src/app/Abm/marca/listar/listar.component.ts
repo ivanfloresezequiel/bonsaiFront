@@ -4,6 +4,7 @@ import {MarcaService} from '../../../service/marca.service';
 import Swal from 'sweetalert2';
 import {Router} from '@angular/router';
 import { from } from 'rxjs';
+import { ExporterService } from '../../../service/exporter.service';
 
 @Component({
   selector: 'app-listar',
@@ -14,14 +15,16 @@ export class ListarComponent implements OnInit {
 
   marca: Marca=null;
   marcas: Marca[]=null;
+  marcasFilter: Marca[] = null;
+  busqueda: string = null;
   
-  
-  constructor(private service: MarcaService,private router:Router) { 
+  constructor(private service: MarcaService,private router:Router, private servicioExportar: ExporterService) { 
     
   }
 
   ngOnInit(): void {
-    this.service.getmarcas().subscribe(data => {this.marcas = data.data;});
+    this.service.getmarcas().subscribe(data => {this.marcas = data.data;
+      this.marcasFilter= this.marcas;});
   }
   Editar(marca: Marca){
     localStorage.setItem("id", marca.id_marca.toString());
@@ -47,7 +50,7 @@ export class ListarComponent implements OnInit {
         marca.estado=false;
         this.service.actualizarMarca(marca).subscribe(data=>{
           this.marca = data.data;
-        
+          
     })
         Swal.fire(
           'Eliminado!',
@@ -59,4 +62,24 @@ export class ListarComponent implements OnInit {
     })
     
   }
+  Exportar():void{
+    this.servicioExportar.exportarExcel(this.marcasFilter, 'Marcas');
+}
+//Filtar 
+  filtrarArticulo() {
+  this.busqueda = this.busqueda.toLowerCase();
+  this.marcasFilter = this.marcas;
+
+  if (this.busqueda !== null) {    
+
+    this.marcasFilter = this.marcas.filter((item) => {
+      const inNombre = item.descripcion.toLowerCase().indexOf(this.busqueda) !== -1;
+      const inDescripcion =
+        item.descripcion.toLowerCase().indexOf(this.busqueda) !== -1;
+      
+      return inNombre || inDescripcion ;
+
+    });
+  }
+}
 }
