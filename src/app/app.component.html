@@ -1,14 +1,10 @@
 <div class="fondo">
-    <app-menu></app-menu>
-    <button (click)="CuentaBancaria()" class="btn btn-success  btn-sm  " style="margin-left: 10px">Cuenta Bancaria</button>
-    <button (click)="Marca()" class="btn btn-success  btn-sm  " style="margin-left: 10px">Marca</button>
-    <button (click)="Producto()" class="btn btn-success  btn-sm  " style="margin-left: 10px">Producto</button>
-    <button (click)="Categoria()" class="btn btn-success  btn-sm  " style="margin-left: 10px">Categoria</button>
-    <button (click)="Proveedor()" class="btn btn-success  btn-sm  " style="margin-left: 10px">Proveedor</button>
-    <button (click)="Banco()" class="btn btn-success  btn-sm  " style="margin-left: 10px">Banco</button>
+    <div *ngIf="!isLogged">
+        <app-login (pressLogin)="validateLogin($event)"></app-login>
 
-
-    <th></th>
-    <th></th>
-    <router-outlet></router-outlet>
+    </div>
+    <div *ngIf="isLogged">
+        <app-menu></app-menu>
+        <router-outlet></router-outlet>
+    </div>
 </div>

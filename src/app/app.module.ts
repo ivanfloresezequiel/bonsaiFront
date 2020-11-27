@@ -5,12 +5,15 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
-import { HttpClientModule } from "@angular/common/http";
+import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
 import { MenuComponent } from './menu/menu.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BancoComponent } from './Abm/banco/banco.component';
 import { CuentaBancariaComponent } from './Abm/cuenta-bancaria/cuenta-bancaria.component';
-
+import { LoginComponent } from './auth/login.component';
+import { RegistroComponent } from './auth/registro.component';
+import { IndexComponent } from './index/index.component';
+import { interceptorProvider } from './interceptors/prod-interceptor.service';
 
 
 
@@ -20,6 +23,11 @@ import { CuentaBancariaComponent } from './Abm/cuenta-bancaria/cuenta-bancaria.c
   declarations: [
     AppComponent,
     MenuComponent,
+    LoginComponent,
+    RegistroComponent,
+    IndexComponent,
+    
+    
   
    
 
@@ -32,7 +40,7 @@ import { CuentaBancariaComponent } from './Abm/cuenta-bancaria/cuenta-bancaria.c
     FormsModule, HttpClientModule, ReactiveFormsModule, BrowserAnimationsModule
    
   ],
-  providers: [ ],
+  providers: [ interceptorProvider],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

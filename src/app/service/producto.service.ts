@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Response} from '../Modelo/Response';
-import { Producto } from '../Modelo/Producto';
-
+import { Producto1 } from '../Modelo/Producto1';
+import {Producto} from '../Modelo/Producto';
 @Injectable({
   providedIn: 'root'
 })
@@ -15,7 +15,8 @@ export class ProductoService {
   getProducto(){
     return this.http.get<Response>(this.Url+"/habilitados");
   }
-  crearProducto(producto: Producto){
+  crearProducto(producto: Producto1){
+    console.log(producto);
     return this.http.post<Response>(this.Url, producto);
   }
   getProductoId(id:number){

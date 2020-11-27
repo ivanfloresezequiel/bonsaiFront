@@ -21,7 +21,9 @@ export class NuevoComponent implements OnInit {
 
   ngOnInit(): void {
   }
- 
+ Cancelar(){
+   this.router.navigate(["banco"])
+ }
   Guardar(){
     if(this.formBanco.valid){
     this.banco.estado=true;

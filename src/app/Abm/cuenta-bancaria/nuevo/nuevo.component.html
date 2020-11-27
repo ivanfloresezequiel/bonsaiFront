@@ -12,7 +12,7 @@
             <input [(ngModel)]="cuentaBancaria.tipoCuenta" name="cuentaBancaria.tipoCuenta" formControlName="tipoCuenta" type="text" class="form-input" placeholder="Tipo de Cuenta">
             <label class="form-label"> Banco: </label>
 
-            <select [(ngModel)]="cuentaBancaria.idBanco" formControlName="bancoID">
+            <select [(ngModel)]="cuentaBancaria.idBanco" name="cuentaBancaria.idBanco " formControlName="bancoID">
                 <option *ngFor= "let banco of bancos" [(value)] = banco.id_banco>
                     {{banco.nombreBanco}}
                 </option>
@@ -23,7 +23,7 @@
             <input [(ngModel)]="cuentaBancaria.cbu" name="cuentaBancaria.cbu" formControlName="cbu" type="text" class="form-input" placeholder="CBU">
             <label class="form-label"> Proveedor: </label>
 
-            <select [(ngModel)]="cuentaBancaria.idProveedor" formControlName="proveedorID">
+            <select [(ngModel)]="cuentaBancaria.idProveedor" name="cuentaBancaria.idProveedor" formControlName="proveedorID">
                 <option *ngFor= "let proveedor of proveedores" [(value)] = proveedor.id_proveedor>
                     {{proveedor.nombre}}
                 </option>
@@ -40,8 +40,11 @@
                 </option>
             </select>
         </mat-form-field>-->
+        <div class="row">
+            <button (click)="Guardar()" class="btn btn-primary  btn-sm" style="margin-left: 10px">Guardar</button>
+            <button routerLink="/CuentaBancaria" class="btn btn-warning  btn-sm" style="margin-left: 10px">Cancelar</button>
 
-        <input (click)=Guardar() type="submit" class="btn-submit" value="Guardar">
+        </div>
 
     </form>
 </div>

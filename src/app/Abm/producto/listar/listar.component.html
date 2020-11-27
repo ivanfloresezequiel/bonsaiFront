@@ -3,6 +3,10 @@
     <div class="contenedor">
         <table>
             <thead>
+
+
+
+
                 <tr class="text-center">
                     <th>nombre</th>
                     <th>Descripcion</th>
@@ -15,7 +19,7 @@
                     <th>stock Actual</th>
                     <th>stock Minimo</th>
                     <th></th>
-                    <th><button (click)="Nuevo()" class="btn btn-success   ">Nuevo</button></th>
+                    <th><button (click)="Nuevo()" class="btn btn-success   " *ngIf="isAdmin">Nuevo</button></th>
                 </tr>
             </thead>
             <tbody>
@@ -23,18 +27,18 @@
                     <th>{{producto.nombre}}</th>
                     <th>{{producto.productoDescripcion}}</th>
                     <th>{{producto.productoInformacion}}</th>
-                    <th>{{producto.marca}}</th>
+                    <th>{{producto.marcaID.nombre}}</th>
                     <th>{{producto.presentacion}}</th>
-                    <th>{{producto.categoriId}}</th>
+                    <th>{{producto.categoriaID.descripcion}}</th>
                     <th>{{producto.codigoBarra}}</th>
                     <th>{{producto.fechaBaja}}</th>
                     <th>{{producto.stockActual}}</th>
                     <th>{{producto.stockMinimo}}</th>
                     <th>
-                        <button (click)="Editar(producto)" class="btn btn-warning  btn-sm">Editar</button></th>
+                        <button (click)="Editar(producto)" class="btn btn-warning  btn-sm" *ngIf="isAdmin">Editar</button></th>
 
                     <th>
-                        <button class="btn btn-danger btn-sm ">Eliminar</button>
+                        <button class="btn btn-danger btn-sm " *ngIf="isAdmin">Eliminar</button>
 
                     </th>
             </tbody>

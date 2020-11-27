@@ -5,6 +5,7 @@ import { from } from 'rxjs';
 import { Banco } from '../../../Modelo/Banco';
 import { BancoService } from '../../../service/banco.service';
 import { ExporterService } from '../../../service/exporter.service';
+import { TokenService } from '../../../service/token.service';
 @Component({
   selector: 'app-listar',
   templateUrl: './listar.component.html',
@@ -15,13 +16,25 @@ export class ListarComponent implements OnInit {
   bancos: Banco[]=null;
   bancosFilter: Banco[]= null;
   busqueda: string;
-  constructor(private service: BancoService,private router:Router, private servicioExportar: ExporterService) { 
+  roles: string[];
+isAdmin: boolean;
+isUser: boolean;
+  constructor(private tokenService: TokenService, private service: BancoService,private router:Router, private servicioExportar: ExporterService) { 
     
   }
 
   ngOnInit(): void {
     this.service.getBancos().subscribe(data => {this.bancos = data.data;
       this.bancosFilter= this.bancos;});
+      this.roles = this.tokenService.getAuthorities();
+      this.roles.forEach(rol => {
+    if (rol === 'ROLE_ADMIN'){
+      this.isAdmin = true;
+    }
+    if (rol === 'ROLE_USER'){
+      this.isUser = true;
+    }
+  });
   }
   Editar(banco: Banco){
     localStorage.setItem("id",banco.id_banco.toString());

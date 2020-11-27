@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {Router} from '@angular/router';
+import { TokenService } from './service/token.service';
 
 @Component({
   selector: 'app-root',
@@ -7,28 +8,23 @@ import {Router} from '@angular/router';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit{
+  isLogged = false;
   title = 'BonsaiFrontend';
-  constructor(private router: Router) { }
+  constructor( private tokenService: TokenService) { }
 
   ngOnInit(): void {
+    if (this.tokenService.getToken()) {
+      console.log(this.tokenService.getToken());
+      this.isLogged = true;
+    } else {
+      this.isLogged = false;
+    }
   }
-  Producto(){
-      this.router.navigate([("productos")]);
+  validateLogin($event): void {
+    this.isLogged = $event;
   }
-  Categoria(){
-    this.router.navigate([("categorias")]);
-  }
-  Proveedor(){
-    this.router.navigate([("proveedor")]);
-  }
-  Marca(){
-    this.router.navigate([("marca")]);
-  }
-  Banco(){
-    this.router.navigate([("banco")]);
-  }
-  CuentaBancaria(){
-    
-    this.router.navigate([("CuentaBancaria")])
-  }
+ 
+  
+
+ 
 }

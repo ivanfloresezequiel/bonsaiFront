@@ -5,6 +5,7 @@ import Swal from 'sweetalert2';
 import {Router} from '@angular/router';
 import { from } from 'rxjs';
 import { ExporterService } from '../../../service/exporter.service';
+import { TokenService } from '../../../service/token.service';
 
 @Component({
   selector: 'app-listar',
@@ -17,14 +18,26 @@ export class ListarComponent implements OnInit {
   marcas: Marca[]=null;
   marcasFilter: Marca[] = null;
   busqueda: string = null;
-  
-  constructor(private service: MarcaService,private router:Router, private servicioExportar: ExporterService) { 
+  isAdmin= false;
+  isUser=false;
+  roles:string[];
+
+  constructor(private tokenService:TokenService, private service: MarcaService,private router:Router, private servicioExportar: ExporterService) { 
     
   }
 
   ngOnInit(): void {
     this.service.getmarcas().subscribe(data => {this.marcas = data.data;
       this.marcasFilter= this.marcas;});
+      this.roles = this.tokenService.getAuthorities();
+      this.roles.forEach(rol => {
+    if (rol === 'ROLE_ADMIN'){
+      this.isAdmin = true;
+    }
+    if (rol === 'ROLE_USER'){
+      this.isUser = true;
+    }
+  });
   }
   Editar(marca: Marca){
     localStorage.setItem("id", marca.id_marca.toString());

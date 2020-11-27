@@ -20,10 +20,11 @@ import { cuentaBancariaDTO } from '../../../DTO/cuentaBancariaDTO';
 export class NuevoComponent implements OnInit {
    cuentaBancaria: cuentaBancariaDTO= new cuentaBancariaDTO();
    idBanco:number=null;
-  
+  proveedor:Proveedor ;
+
   idProveedor:number=null;
   formCuenta:FormGroup;
- 
+ banco: Banco;
   bancos : Banco[]=null;
  
   proveedores: Proveedor[]=null
@@ -35,17 +36,20 @@ export class NuevoComponent implements OnInit {
 
   ngOnInit(): void {
     this.buildForm();
+    
     this.servicioBanco.getBancos().subscribe(data => {this.bancos = data.data });
     this.servicioProveedor.getProveedor().subscribe(data=>{
       this.proveedores=data.data;
+
     })
     }
  
-  Guardar(){      
-    
-    if(this.formCuenta.valid){
+  async Guardar(){      
+  
+      if(this.formCuenta.valid){
         this.cuentaBancaria.estado=true;
-      this.service.crearCuentaBancaria(this.cuentaBancaria).subscribe(data=>{
+        console.log(this.cuentaBancaria);
+     await this.service.crearCuentaBancaria(this.cuentaBancaria).subscribe(data=>{
       Swal.fire({
         position: 'top',
         icon: 'success',

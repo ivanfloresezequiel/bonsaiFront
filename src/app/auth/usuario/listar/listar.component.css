@@ -1,0 +1,71 @@
+.contenedor {
+    margin: 50px auto;
+    width: 800px;
+    font-family: 'Times New Roman', Times, serif;
+    color: white;
+}
+
+table {
+    background: white;
+    text-align: left;
+    border-collapse: collapse;
+    width: 100%
+}
+
+.formInput-placeholder {
+    color: red;
+}
+
+th,
+td {
+    padding: 15px;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+thead {
+    background-color: rgba(0, 0, 0, 0.822);
+    color: #0CD2A8;
+    border-bottom: solid 5Px #0F362D;
+}
+
+tbody {
+    /*   background-color: #A1D555;*/
+    background-color: rgba(0, 0, 0, 0.61);
+}
+
+tr:nth-child(even) {
+    /* 4AA24B*/
+    background-color: rgba(0, 0, 0, 0.705);
+    /*   background-color: #489C49;*/
+}
+
+tr:hover td {
+    background-color: #369681;
+    color: white;
+}
+
+.btn-success {
+    color: rgba(0, 0, 0, 0.822);
+    background: #0CD2A8;
+}
+
+.contenedor1 {
+    margin: 30px auto;
+    width: 800px;
+    font-family: 'Times New Roman', Times, serif;
+    color: white;
+}
+
+.contenedor1 .formInput {
+    background: rgba(0, 0, 0, .7);
+    border: none;
+    outline: none;
+    border-bottom: 2px solid#0CD2A8;
+    width: 80%;
+    padding: 12px;
+    margin-bottom: 20px;
+    border-radius: 2px;
+    font-size: 14px;
+    color: beige;
+    font-family: 'Times New Roman', Times, serif;
+}

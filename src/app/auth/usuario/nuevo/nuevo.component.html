@@ -1,0 +1,68 @@
+<div class="contenedor">
+    <form class="form" [formGroup]="formUsuario">
+
+        <div class="form-header">
+            <h1 class="form-title">Nuevo<span> Usuario</span></h1>
+        </div>
+
+
+
+
+        <label class="form-label">Nombre: </label>
+        <input [(ngModel)]="usuario.nombre" name="usuario.nombre" formControlName="nombre" type="text" class="form-input" placeholder="Nombre">
+        <div class="row" class="alert-danger" *ngIf="nombre.invalid && (nombre.dirty || nombre.touched)">
+            <div class="container-error-message" *ngIf="nombre.errors.required">
+                Nombre es requerido
+            </div>
+
+        </div>
+        <label class="form-label">Nombre Usuario: </label>
+        <input [(ngModel)]="usuario.nombreUsuario" name="usuario.nombreUsuario" formControlName="nombreUsuario" type="text" class="form-input" placeholder="Nombre de Usuario">
+        <div class="row" class="alert-danger" *ngIf="nombreUsuario.invalid && (nombreUsuario.dirty || nombreUsuario.touched)">
+            <div class="container-error-message" *ngIf="nombreUsuario.errors.required">
+                Nombre de Usuario es requerido
+            </div>
+
+        </div>
+
+        <label class="form-label">Email: </label>
+
+        <input [(ngModel)]="usuario.mail" name="usuario.mail" formControlName="mail" type="text" class="form-input" placeholder=" Email">
+        <div class="row" class="alert-danger" *ngIf="mail.invalid && (mail.dirty || mail.touched)">
+            <div class="container-error-message" *ngIf="mail.errors.required">
+                Email es requerido
+            </div>
+            <div class="container-error-message" *ngIf="(mail.dirty || mail.touched) && mail.invalid && mail.errors.pattern">
+                Ingrese una direccion de Email Valida: ejemplo@ejemplo.com
+            </div>
+        </div>
+        <label class="form-label"> ROL: </label>
+        <select [(ngModel)]="rol" formControlName="roles">
+                <option value = "admin">
+                    Administrador
+                </option>
+              
+            </select>
+
+        <div class="col md-3">
+            <label class="form-label"> Contraseña: </label>
+            <input [(ngModel)]="usuario.password" name="usuario.password" formControlName="password" type="password" class="form-input" placeholder=" Contraseña">
+
+            <div class="row" class="alert-danger" *ngIf="password.invalid && (password.dirty || password.touched)">
+                <div class="container-error-message" *ngIf="password.errors.required">
+                    contraseña es requerido
+                </div>
+
+            </div>
+
+
+        </div>
+
+        <div class="row">
+            <button (click)="Guardar()" class="btn btn-primary  btn-sm" style="margin-left: 10px">Guardar</button>
+            <button routerLink="/" class="btn btn-warning  btn-sm" style="margin-left: 10px">Cancelar</button>
+
+        </div>
+
+    </form>
+</div>

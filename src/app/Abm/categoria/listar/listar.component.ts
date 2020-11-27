@@ -4,6 +4,7 @@ import { CategoriaService } from '../../../service/categoria.service';
 import Swal from 'sweetalert2';
 import {Router} from '@angular/router';
 import { ExporterService } from '../../../service/exporter.service';
+import { TokenService } from '../../../service/token.service';
 @Component({
   selector: 'app-listar',
   templateUrl: './listar.component.html',
@@ -14,14 +15,25 @@ export class ListarComponent implements OnInit {
   categorias: Categoria[]=null;
   categoriasFilter: Categoria[]=null;
   busqueda: string= null;
-  
-  constructor(private service: CategoriaService,private router:Router, private servicioExportar: ExporterService) { 
+  roles: string[];
+  isAdmin=false;
+  isUser = false;
+  constructor(private tokenService: TokenService, private service: CategoriaService,private router:Router, private servicioExportar: ExporterService) { 
     
   }
 
   ngOnInit(): void {
     this.service.getCategorias().subscribe(data => {this.categorias = data.data;
     this.categoriasFilter=this.categorias});
+    this.roles = this.tokenService.getAuthorities();
+    this.roles.forEach(rol => {
+  if (rol === 'ROLE_ADMIN'){
+    this.isAdmin = true;
+  }
+  if (rol === 'ROLE_USER'){
+    this.isUser = true;
+  }
+});
     
   }
   Editar(categoria: Categoria){

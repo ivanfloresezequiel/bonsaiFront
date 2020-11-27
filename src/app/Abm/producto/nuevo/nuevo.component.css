@@ -6,6 +6,21 @@
     position: relative;
 }
 
+.contenedor .form {
+    background: rgba(0, 0, 0, .8);
+    width: 90%;
+    max-width: 850px;
+    margin: auto;
+    padding: 5px 35px;
+    margin-top: 30px;
+    padding-bottom: 30px;
+    border-radius: 3px;
+}
+
+th {
+    color: white
+}
+
 
 /*Para darle formato a los input*/
 
@@ -14,7 +29,7 @@
     border: none;
     outline: none;
     border-bottom: 2px solid#0CD2A8;
-    width: 60%;
+    width: 30%;
     padding: 12px;
     margin-bottom: 20px;
     border-radius: 2px;
@@ -51,4 +66,20 @@ input[type=number]::-webkit-outer-spin-button {
 
 input[type=number] {
     -moz-appearance: textfield;
+}
+
+.btn-primary {
+    width: 40%;
+    color: rgba(0, 0, 0, 0.822);
+    background: #0CD2A8;
+}
+
+.btn-warning {
+    width: 40%;
+}
+
+.btn-danger {
+    font-size: smaller;
+    height: 20px;
+    width: 20px;
 }

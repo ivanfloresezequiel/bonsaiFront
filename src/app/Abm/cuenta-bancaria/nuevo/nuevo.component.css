@@ -90,3 +90,13 @@ input[type=number]::-webkit-outer-spin-button {
 input[type=number] {
     -moz-appearance: textfield;
 }
+
+.btn-primary {
+    width: 40%;
+    color: rgba(0, 0, 0, 0.822);
+    background: #0CD2A8;
+}
+
+.btn-warning {
+    width: 40%;
+}

@@ -4,6 +4,7 @@ import {Router} from '@angular/router';
 import { ExporterService } from '../../../service/exporter.service';
 import { CuentaBancaria } from '../../../Modelo/CuentaBancaria';
 import { CuentaBancariaService } from '../../../service/cuenta-bancaria.service';
+import { TokenService } from '../../../service/token.service';
 @Component({
   selector: 'app-listar',
   templateUrl: './listar.component.html',
@@ -14,8 +15,11 @@ export class ListarComponent implements OnInit {
   cuentaBancarias: CuentaBancaria[]=null;
   cuentasFilter: CuentaBancaria[]=null;
   busqueda: string= null;
+  roles: string[];
+  isAdmin=false;
+  isUser=false;
   
-  constructor(private service: CuentaBancariaService,private router:Router, private servicioExportar: ExporterService) { 
+  constructor(private tokenService: TokenService, private service: CuentaBancariaService,private router:Router, private servicioExportar: ExporterService) { 
     
   }
 
@@ -23,6 +27,15 @@ export class ListarComponent implements OnInit {
     
     this.service.getCuentasBancarias().subscribe(data => {this.cuentaBancarias = data.data;
     this.cuentasFilter=this.cuentaBancarias});
+    this.roles = this.tokenService.getAuthorities();
+    this.roles.forEach(rol => {
+  if (rol === 'ROLE_ADMIN'){
+    this.isAdmin = true;
+  }
+  if (rol === 'ROLE_USER'){
+    this.isUser = true;
+  }
+});
     
   }
   Editar(cuentaBancaria:CuentaBancaria){

@@ -93,9 +93,12 @@
                     Ingrese una direccion de Email Valida: ejemplo@ejemplo.com
                 </div>
             </div>
-            <input (click)=Guardar() type="submit" class="btn-submit" value="Guardar" [disabled]="!formProveedor">
-            <!--    <button (click)="Guardar()" class="btn btn-warning" [disabled]="!formProveedor">Guardar</button>
--->
+            <div class="row">
+                <button (click)="Guardar()" class="btn btn-primary  btn-sm" style="margin-left: 10px">Guardar</button>
+                <button routerLink="/proveedor" class="btn btn-warning  btn-sm" style="margin-left: 10px">Cancelar</button>
+
+            </div>
+            -->
         </form>
 
     </div>

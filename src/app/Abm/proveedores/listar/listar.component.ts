@@ -4,6 +4,7 @@ import { Proveedor } from '../../../Modelo/proveedor';
 import { ProveedorService } from '../../../service/proveedor.service';
 import Swal from 'sweetalert2';
 import { ExporterService } from '../../../service/exporter.service';
+import { TokenService } from '../../../service/token.service';
 
 @Component({
   selector: 'app-listar',
@@ -15,7 +16,10 @@ export class ListarComponent implements OnInit {
   proveedores: Proveedor[] = null;
   proveedoresFilter: Proveedor[] = [];
   busqueda: string = null;
-  constructor(private service: ProveedorService, private router:Router, private servicioExportar: ExporterService) { 
+  roles:string[];
+  isAdmin=false;
+  isUser=false;
+  constructor(private tokenService:TokenService, private service: ProveedorService, private router:Router, private servicioExportar: ExporterService) { 
     
   }
 
@@ -24,6 +28,15 @@ export class ListarComponent implements OnInit {
       this.proveedores = data.data;
       this.proveedoresFilter= this.proveedores;
     })    
+    this.roles = this.tokenService.getAuthorities();
+      this.roles.forEach(rol => {
+    if (rol === 'ROLE_ADMIN'){
+      this.isAdmin = true;
+    }
+    if (rol === 'ROLE_USER'){
+      this.isUser = true;
+    }
+  });
   }
 
 

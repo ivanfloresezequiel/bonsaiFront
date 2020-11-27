@@ -20,7 +20,7 @@
                     <th>Email</th>
                     <th></th>
 
-                    <th><button (click)="Nuevo()" class="btn btn-success   ">Nuevo</button></th>
+                    <th><button (click)="Nuevo()" class="btn btn-success   " *ngIf="isAdmin">Nuevo</button></th>
 
 
                 </tr>
@@ -37,10 +37,10 @@
                     <td>{{proveedor.mail}}</td>
 
                     <td>
-                        <button (click)="Editar(proveedor)" class="btn btn-primary  btn-sm">Editar</button>
+                        <button (click)="Editar(proveedor)" class="btn btn-primary  btn-sm" *ngIf="isAdmin">Editar</button>
                     </td>
                     <td>
-                        <button (click)="Eliminar(proveedor)" class="btn btn-danger btn-sm ">Eliminar</button>
+                        <button (click)="Eliminar(proveedor)" class="btn btn-danger btn-sm " *ngIf="isAdmin">Eliminar</button>
                     </td>
                 </tr>
             </tbody>

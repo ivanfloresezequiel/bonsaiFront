@@ -1,0 +1,36 @@
+<div class="container-fluid">
+    <div class="contenedor1">
+        <div class="row">
+            <input type="text" [(ngModel)]="busqueda" class="formInput  searchText" placeholder="Ingrese busqueda" (keyup)="filtrarArticulo()" />
+            <tr> <button (click)="Exportar()" class="btn btn-success">Exportar Excel</button> </tr>
+        </div>
+    </div>
+    <div class="contenedor">
+        <table>
+            <thead>
+                <tr class="text-center">
+                    <th>Nombre</th>
+                    <th>Nombre Usuario</th>
+                    <th>mail</th>
+                    <th>roles</th>
+                    <th></th>
+                    <th><button (click)="Nuevo()" class="btn btn-success  btn-sm ml-auto" *ngIf="isAdmin">Nuevo</button></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let usuario of usuarioFilter" class="text-center">
+                    <th>{{usuario.nombre}}</th>
+                    <th>{{usuario.nombreUsuario}}</th>
+                    <th>{{usuario.mail}}</th>
+                    <th>{{usuario.roles[0].rolNombre}}</th>
+
+
+                    <td>
+                        <button class="btn btn-primary  btn-sm" style="margin-left: 10px" *ngIf="isAdmin">Editar</button></td>
+                    <td> <button class="btn btn-danger btn-sm " style="margin-left: 10px" *ngIf="isAdmin">Eliminar</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

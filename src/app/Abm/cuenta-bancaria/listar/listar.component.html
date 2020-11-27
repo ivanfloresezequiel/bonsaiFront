@@ -14,7 +14,7 @@
                     <th>Tipo Cuenta</th>
                     <th>CBU</th>
                     <th></th>
-                    <th><button (click)="Nuevo()" class="btn btn-success  btn-sm ml-auto">Nuevo</button></th>
+                    <th><button (click)="Nuevo()" class="btn btn-success  btn-sm ml-auto" *ngIf="isAdmin">Nuevo</button></th>
                 </tr>
             </thead>
             <tbody>
@@ -24,8 +24,8 @@
                     <td>{{cuenta.tipoCuenta}}</td>
                     <td>{{cuenta.cbu}}</td>
                     <td>
-                        <button (click)="Editar(cuenta)" class="btn btn-primary  btn-sm" style="margin-left: 10px">Editar</button></td>
-                    <td> <button (click)="Eliminar(cuenta)" class="btn btn-danger btn-sm " style="margin-left: 10px">Eliminar</button>
+                        <button (click)="Editar(cuenta)" class="btn btn-primary  btn-sm" style="margin-left: 10px" *ngIf="isAdmin">Editar</button></td>
+                    <td> <button (click)="Eliminar(cuenta)" class="btn btn-danger btn-sm " style="margin-left: 10px" *ngIf="isAdmin">Eliminar</button>
                     </td>
                 </tr>
             </tbody>

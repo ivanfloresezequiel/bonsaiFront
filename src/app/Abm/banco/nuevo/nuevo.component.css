@@ -33,6 +33,16 @@
     border-radius: 3px;
 }
 
+.btn-primary {
+    width: 40%;
+    color: rgba(0, 0, 0, 0.822);
+    background: #0CD2A8;
+}
+
+.btn-warning {
+    width: 40%;
+}
+
 
 /*Para darle formato a las letras*/
 

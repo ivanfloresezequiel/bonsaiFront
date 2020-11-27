@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import{Producto} from '../../../Modelo/Producto';
 import{ ProductoService } from '../../../service/producto.service';
 import {Router} from '@angular/router';
+import { TokenService } from '../../../service/token.service';
 
 @Component({
   selector: 'app-listar',
@@ -15,16 +16,27 @@ export class ListarComponent implements OnInit {
   
   producto:Producto=null;
   productos:Producto[]=null;
+  isAdmin=false;
+  isUser=false;
+  roles:string[];
   
   
-  
-  constructor(private service: ProductoService,private router:Router) { 
+  constructor(private tokenService:TokenService, private service: ProductoService,private router:Router) { 
     
   }
 
   ngOnInit(): void {
 
     this.service.getProducto().subscribe(data => {this.productos=data.data}); 
+    this.roles = this.tokenService.getAuthorities();
+      this.roles.forEach(rol => {
+    if (rol === 'ROLE_ADMIN'){
+      this.isAdmin = true;
+    }
+    if (rol === 'ROLE_USER'){
+      this.isUser = true;
+    }
+  });
      
     
   }

@@ -15,12 +15,11 @@ export class CuentaBancariaService {
   getCuentasBancarias(){
     return this.http.get<Response>(this.Url+"/habilitados");
   }
+
+ 
   crearCuentaBancaria(cuentaBancaria:cuentaBancariaDTO){
     return this.http.post<Response>(this.Url, CuentaBancaria);
   }
-  // crearCuentaBancaria(cuentaBancaria:CuentaBancaria){
-  //   return this.http.post<Response>(this.Url, CuentaBancaria);
-  // }
   getCuentaBancariaId(id:number){
     return this.http.get<Response>(this.Url + "/"+ id);
   }
@@ -28,3 +27,6 @@ export class CuentaBancariaService {
     return this.http.put<Response>(this.Url+"/"+ cuentaBancaria.id_cuentaBancaria,cuentaBancaria);
   }
 }
+
+
+  

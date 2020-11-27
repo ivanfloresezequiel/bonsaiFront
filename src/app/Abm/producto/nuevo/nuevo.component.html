@@ -1,82 +1,76 @@
 <div class="contenedor">
     <form class="form">
-        <mat-form-field class="col md-3">
+        <div class="row">
             <label class="form-label">Nombre: </label>
-            <input placeholder="Just a placeholder">
+            <input [(ngModel)]="producto.nombre" name="producto.nombre" class="form-input" placeholder="Just a placeholder">
 
-            <label class="form-label">Presentacion:  </label>
-            <input class="form-input">
-            <label class="form-label">Presentacion:  </label>
-            <input placeholder="Presentacion">
-        </mat-form-field>
-        <mat-form-field class="col md-3">
-            <label class="form-label">Nombre: </label>
-            <input placeholder="Just a placeholder">
 
-            <label class="form-label">Presentacion:  </label>
-            <input placeholder="Presentacion">
-            <label class="form-label">Presentacion:  </label>
-            <input placeholder="Presentacion">
-        </mat-form-field>
+
+            <label class="form-label">Descripción:  </label>
+            <input [(ngModel)]="producto.productoDescripcion" name="producto.productoDescripcion" class="form-input">
+
+        </div>
+        <div class="row">
+            <label class="form-label">Información:  </label>
+            <input [(ngModel)]="producto.productoInformacion" name="producto.productoInformacion" class="form-input" placeholder="Informacion">
+            <label class="form-label">Marca: </label>
+
+            <select [(ngModel)]="producto.marcaID" name="producto.marcaID">
+                <option *ngFor= "let marca of marcas" [(value)] = marca.id_marca >
+                    {{marca.nombre}}
+                </option>
+            </select>
+
+        </div>
+        <div>
+            <label class="form-label">Presentación:  </label>
+            <input [(ngModel)]="producto.presentacion" name="producto.presentacion" class="form-input" placeholder="Presentacion">
+        </div>
+        <div>
+            <label class="form-label">Categoria:  </label>
+            <select [(ngModel)]="producto.categoriaID" name="producto.categoriaID">
+                <option *ngFor= "let categoria of categorias" [(value)] = categoria.id_categoria >
+                    {{categoria.descripcion}}
+                </option>
+            </select>
+
+        </div>
+        <label class="form-label">Proveedores:  </label>
+
+        <select [(ngModel)]="proveedorID" name="producto.categoriaID">
+            <option *ngFor= "let proveedor of proveedores" [(value)] = proveedor.id_proveedor >
+                {{proveedor.nombre}}
+            </option>
+        </select>
+        <button (click)="Agregar()" class="btn btn-success   ">+</button>
+        <button (click)="Quitar()" class="btn btn-danger   ">-</button>
+
+        <table>
+            <thead>
+
+
+
+                <tr class="text-center">
+                    <th>Proveedores</th>
+                    <th></th>
+
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let proveedor of proveedoreSeleccionado" class="text-center">
+                    <th>{{proveedor.nombre}}</th>
+
+                </tr>
+            </tbody>
+        </table>
+        <label class="form-label">Codigo de Barra:  </label>
+        <input [(ngModel)]="producto.codigoBarra" name="producto.codigoBarra" type="number" class="form-input" placeholder="Codigo de Barra">
+        <label class="form-label">Stock Minimo:  </label>
+        <input [(ngModel)]="producto.stockMinimo" name="producto.stockMinimo" type="number" class="form-input" placeholder="Stock Minimo">
+        <div class="row">
+            <button (click)="Guardar()" class="btn btn-primary  btn-sm" style="margin-left: 10px">Guardar</button>
+            <button routerLink="/productos" class="btn btn-warning  btn-sm" style="margin-left: 10px">Cancelar</button>
+
+        </div>
     </form>
 </div>
-<!--<div class="container col-md-8">
-    <div class="card">
-        <div class="card-header">
-
-            <h3 class="text-center">Agregar Producto</h3>
-        </div>
-        <div class="body">
-            <form action="">
-                <div class="row">
-                    <div class="form-group  col-md-4">
-
-                        <input [(ngModel)]="producto.nombre" name="nombre" type="text" class="form-control" placeholder="Nombre">
-                    </div>
-                    <div class="form-group col-md-4">
-                        <input [(ngModel)]="producto.productoDescripcion" name="productoDescripcion" type="text" class="form-control" placeholder="Descripcion">
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="form-group  col-md-3">
-
-                        <input [(ngModel)]="producto.productoInformacion" name="productoInformacion" type="tex" class="form-control" placeholder="Informacion">
-                    </div>
-                    <div class="form-group  col-md-3">
-
-                        <input [(ngModel)]="producto.presentacion" name="Presentacion" type="text" class="form-control" placeholder="Presentacion">
-                    </div>
-                    <div class="form-group  col-md-3">
-
-                        <select [(ngModel)]="producto.categoriId">
-                            <label for="">Categoria </label>
-            <option *ngFor="let categoria of categorias" value={{categoria.id_categoria}} placeholder="Categoria">
-                {{categoria.descripcion}}
-            </option>
-            </select>
-</div>
-<div class="col-md-2">
-    <button class="btn btn-success" (click)="CategoriaNueva()">...</button>
-</div>
-</div>
-
-<div class="form-group col-md-8">
-    <div class="row">
-        <input [(ngModel)]="producto.codigoBarra" name="codigoBarra" type="text" class="form-control" placeholder="Codigo de Barra">
-    </div>
-</div>
-<div class="row">
-    <div class="form-group col-md-3">
-        <label for="">Fecha de Baja</label>
-        <input [(ngModel)]="producto.fechaBaja" name="fechaBaja" type="date" class="form-control">
-    </div>
-
-    <div class="form-group col-md-3">
-        <label for="">Stock Minimo</label>
-        <input [(ngModel)]="producto.stockMinimo" name="stockMinimo" type="text" class="form-control">
-    </div>
-</div>
-
-</form>
-</div>
-<button (click)="Guardar()" class="btn btn-warning">Guardar</button> -->
